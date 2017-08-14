@@ -268,7 +268,7 @@ tarantool_parse_body(struct msg *r, const char **pos, const char *end)
  * Reference: http://tarantool.org/doc/box-protocol.html
  *
  * twemproxy only supports the MessagePack-based protocol introduced in
- * Tarantool 1.6.
+ * Tarantool 1.6.0.
  *
  * Unified request format:
  *
@@ -810,7 +810,7 @@ tarantool_get_greeting(struct msg *msg)
 
     n = nc_scnprintf(mbuf->last, IPROTO_GREETING_SIZE + 1,
                      "Tarantool %-20s %-32s\n%-63s\n",
-                     "1.6", "("PACKAGE_STRING")", base64buf);
+                     "1.6.0", "("PACKAGE_STRING")", base64buf);
 
     mbuf->last += n;
     msg->mlen += (uint32_t)n;
