@@ -358,7 +358,7 @@ msg_get_error(struct msg *r, err_t err)
     struct mbuf *mbuf;
     char *errstr = err ? strerror(err) : "unknown";
 
-    msg = _msg_get();
+    msg = msg_get(r->owner, r->request, r->proto);
     if (msg == NULL) {
         return NULL;
     }
